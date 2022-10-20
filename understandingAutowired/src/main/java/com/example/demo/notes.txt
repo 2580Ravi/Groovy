@@ -1,0 +1,7 @@
+@Autowire
+
+Zero Bean => no bean => @Bean => @Autowired(required=false)
+
+one Bean => No Problems
+
+More than one Bean => @Primary or @Qualifier
