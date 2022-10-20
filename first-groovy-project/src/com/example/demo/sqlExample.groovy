@@ -1,0 +1,27 @@
+package com.example.demo
+
+import java.util.function.Function
+
+import groovy.sql.Sql
+
+class sqlExample {
+	
+	static void main(String[] args) {
+		def sqlConn = 
+//		Sql.newInstance(url:"jdbc:mysql://localhost:3306/tieto_customer" , user:"root", password:"123456", driverClassName:"com.mysql.cj.jdbc.Driver")
+//		sqlConn.eachRow('select * from product_sep_2022') { 
+//			tp->
+//			println([tp.id,tp.product_name,tp.rate_per_unit])
+//		}
+		
+		Sql.newInstance(url:"jdbc:mysql://localhost:3306/tieto_customer" , user:"root", password:"123456", driverClassName:"com.mysql.cj.jdbc.Driver")
+		sqlConn.eachRow('select * from product_sep_2022') {
+			tp->
+			Product obj = new Product(tp.id,tp.product_name,tp.rate_per_unit)
+			println(obj)
+		}
+		1.upto(20){println "$it"}
+		sqlConn.close();
+	}
+	
+}
